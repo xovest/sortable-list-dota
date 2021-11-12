@@ -23,7 +23,11 @@ createList();
 
 //inserting the list items into DOM
 function createList() {
-  [...heroes].forEach((hero, index) => {
+  [...heroes]
+    .map(a => ({ value: a, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(a => a.value)
+    .forEach((hero, index) => {
     const listItem = document.createElement('li');
     listItem.setAttribute('data-index', index);
     listItem.innerHTML = `
