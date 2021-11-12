@@ -29,7 +29,7 @@ body {
 }
 
 .draggable-list li {
-  background-color: rgb(227, 249, 255);
+  background-color: rgb(216, 247, 255);
   display: flex;
   flex: 1;
 }
