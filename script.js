@@ -43,7 +43,6 @@ function createList() {
     draggableList.appendChild(listItem);
   });
 
-
   addEventListeners();
 }
 
@@ -61,7 +60,6 @@ function dragLeave() {
 
 function dragOver(e) {
   e.preventDefault();
-
 }
 
 function dragDrop() {
@@ -79,6 +77,20 @@ function swapItems(fromIndex, toIndex) {
   listItems[toIndex].appendChild(itemOne);
 }
 
+//checking em korekt
+function checkOrder() {
+  listItems.forEach((listItem, index) => {
+    const heroName = listItem.querySelector('.draggable').innerText.trim();
+
+    if (heroName !== heroes[index]) {
+      listItem.classList.add('wrong');
+    } else {
+      listItem.classList.remove('wrong');
+      listItem.classList.add('right');
+    }
+  });
+}
+
 function addEventListeners() {
   const draggables = document.querySelectorAll('.draggable');
   const dragListItems = document.querySelectorAll('.draggable-list li');
@@ -94,3 +106,5 @@ function addEventListeners() {
     item.addEventListener('dragleave', dragLeave);
   });
 }
+
+check.addEventListener('click', checkOrder);
